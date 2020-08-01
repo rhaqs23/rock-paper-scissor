@@ -1,20 +1,67 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="card-header bg-dark">
+  <h1 class="font-weight-bold cursive text-white text-center">Rock Paper Scissor</h1>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container text-center">
+  
+  <div class="row">
+    
+    <div class="col-sm-6 p-4">
+      <div class="card border-0">
+        <div  class="card-header bg-primary text-white">
+          <h1><span class="fa fa-user-o "></span></h1>
+           <h5 class="font-weight-bold cursive font-italic">Player</h5>
+        </div>
+        <div class="card-body">
+            <button id="playerRock" class="btn m-4"  matTooltip="Rock" (click)="play('rock')"
+              [ngClass]="playerRock ? 'btn-outline-success' : playerRock === false? 'btn-outline-danger' : 'btn-outline-secondary'">
+              <h1 style="font-size: 5em;"><span class="fa fa-hand-rock-o" ></span></h1>
+            </button>
+            <button id="playerPaper" class="btn m-4" matTooltip="Paper" (click)="play('paper')"
+              [ngClass]="playerPaper ? 'btn-outline-success' : playerPaper === false? 'btn-outline-danger' : 'btn-outline-secondary'">
+              <h1 style="font-size: 5em;"><span class="fa fa-hand-paper-o"></span></h1>
+            </button>
+            <button id="playerScissor" class="btn m-4" matTooltip="Scissor" (click)="play('scissor')"
+              [ngClass]="playerScissor ? 'btn-outline-success' : playerScissor === false? 'btn-outline-danger' : 'btn-outline-secondary'">
+              <h1 style="font-size: 5em;"><span class="fa fa-hand-scissors-o"></span></h1>
+            </button>
+        </div>
+        <div class="card-footer text-left bg-secondary">
+          <h2 class="cursive font-weight-bold text-white">Score : {{userScore}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 p-4">
+      <div class="card border-0">
+        <div class="card-header bg-warning text-white">
+          <h1>
+            <span class="fa fa-terminal"></span>
+          </h1>
+          <h5 class="font-weight-bold cursive font-italic">Computer</h5>
+        </div>
+        <div class="card-body">
+          <button id="compRock" class="btn m-4" disabled 
+            [ngClass]="compRock ? 'btn-outline-success' : compRock === false? 'btn-outline-danger' : 'btn-outline-secondary'">
+            <h1 style="font-size: 5em;"><span class="fa fa-hand-rock-o" ></span></h1>
+          </button>
+          <button id="compPaper" class="btn m-4" disabled
+            [ngClass]="compPaper ? 'btn-outline-success' : compPaper === false? 'btn-outline-danger' : 'btn-outline-secondary'">
+            <h1 style="font-size: 5em;"><span class="fa fa-hand-paper-o"></span></h1>
+          </button>
+          <button id="compScissor" class="btn m-4" disabled
+            [ngClass]="compScissor ? 'btn-outline-success' : compScissor === false? 'btn-outline-danger' : 'btn-outline-secondary'">
+            <h1 style="font-size: 5em;"><span class="fa fa-hand-scissors-o"></span></h1>
+          </button>
+      </div>
+        <div class="card-footer text-left bg-secondary">
+          <h2 class="cursive font-weight-bold text-white">Score : {{compScore}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
 
+<div class="mb-3">
+  <button mat-button matTooltip="Restart" (click)="restart()"
+  class="btn-success rounded rounded-circle" ><mat-icon >refresh</mat-icon></button>
+</div>
+
+</div>

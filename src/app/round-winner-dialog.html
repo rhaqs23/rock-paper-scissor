@@ -1,0 +1,19 @@
+<div class="row cursive text-center">
+    <div class="col-12">
+        <h1 mat-dialog-title class="cursive">{{data.roundWinner}}</h1>
+    </div>
+    <div class="col-6">
+        you <br>  {{data.userScore}}
+    </div>
+    <div class="col-6">
+        Comp <br> {{data.compScore}}
+    </div>
+</div>
+<mat-card *ngIf="data.finalResult !== ''" class="text-center bg-light">
+    <h1 mat-dialog-title class="cursive font-weight-bold">
+        {{data.finalResult}}
+    </h1>
+
+    <button mat-button matTooltip="Restart" (click)="restart()"
+        class="btn-success rounded rounded-circle" ><mat-icon >refresh</mat-icon></button>
+</mat-card>
