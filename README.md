@@ -1,5 +1,6 @@
 # Rock-paper-scissor 
 A simple fun game . Has 3 tries. Only single player can play.
+Link : https://rock-paper-scissor-rhaqs.web.app/
 
 # DemoDeploy
 
